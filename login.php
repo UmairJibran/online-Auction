@@ -1,3 +1,7 @@
+<?php
+    require_once ('connection.php');
+?>
+
 <html>
 
 <head>
@@ -33,7 +37,6 @@
                             <option value="easypaisa">EasyPaisa</option>
                             <option value="cashOnDelivery">Cash on Delivery</option>
                         </select>
-
                     </div>
                 </center>
             </form>
@@ -49,7 +52,7 @@
                         <br><br>
                         <input required type="password" name="password" id="password" placeholder="Your Password">
                         <br><br>
-                        <input type="submit" value="Log In" class="btn btn-primary" style="float: right;">
+                        <input type="submit" name='login' value="Log In" class="btn btn-primary" style="float: right;">
                     </div>
                 </form>
             </center>
@@ -58,3 +61,24 @@
 </body>
 
 </html>
+
+<?php
+    if(isset($_POST['login'])){
+        $email = $_POST['Email'];
+        $password = $_POST['password'];
+        $query = "SELECT * FROM `auction_user` WHERE `user_email` = '$email' AND `user_password` = '$password'";
+        $result = $conn->query($query);
+        $rows = $result->num_rows;
+        if($rows == 1){
+            while ($data = $result->fetch_assoc()){
+                setcookie('user_id', $data['user_id'], time() + 3600); //we want the user Logged in for one hour
+                setcookie('user_first_name', $data['user_first_name'], time() + 3600);
+                setcookie('user_last_name', $data['user_last_name'], time() + 3600);
+                header('location:index.php');
+            }
+        }else{
+            echo "<br><br><center>Please Double Check your Credential</center>";
+        }
+    }
+    
+?>
