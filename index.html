@@ -19,17 +19,17 @@
             <form action="#" method="post">
                 <center>
                     <div class="md-form">
-                        <input type="text" id="FirstName" placeholder="First Name">
-                        <input type="email" id="email" placeholder="Email Address" style="float: right;">
+                        <input required type="text" id="FirstName" placeholder="First Name">
+                        <input required type="email" id="email" placeholder="Email Address" style="float: right;">
                         <br><br>
-                        <input type="text" id="LastName" placeholder="Last Name">
-                        <input type="password" id="password" placeholder="Your Password" style="float: right;">
+                        <input required type="text" id="LastName" placeholder="Last Name">
+                        <input required type="password" id="password" placeholder="Your Password" style="float: right;">
                         <br><br>
-                        <input type="number" id="Contact" placeholder="Contact">
+                        <input required type="number" id="Contact" placeholder="Contact">
                         <input type="submit" value="Sign Up" class="btn btn-primary"
                             style="float: right; margin-left: 60px;">
                         <br><br>
-                        <select name="payment" id="payment" class="custom-select">
+                        <select required name="payment" id="payment" class="custom-select">
                             <option value="easypaisa">EasyPaisa</option>
                             <option value="cashOnDelivery">Cash on Delivery</option>
                         </select>
@@ -45,9 +45,9 @@
                 <h1>Log In</h1>
                 <form action="#" method="post">
                     <div class="md-form">
-                        <input type="email" name="Email" id="email" placeholder="Email Address">
+                        <input required type="email" name="Email" id="email" placeholder="Email Address">
                         <br><br>
-                        <input type="password" name="password" id="password" placeholder="Your Password">
+                        <input required type="password" name="password" id="password" placeholder="Your Password">
                         <br><br>
                         <input type="submit" value="Log In" class="btn btn-primary" style="float: right;">
                     </div>
