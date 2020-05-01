@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Auction - Log In/Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/master.css">
+</head>
+
+<body class="entirePage">
+    <div class="jumbotron"></div>
+    <div class="row">
+        <div class="col col-1"></div>
+        <div class="col col-6">
+            <center>
+                <h1>Sign Up</h1>
+            </center>
+            <form action="#" method="post">
+                <center>
+                    <div class="md-form">
+                        <input type="text" id="FirstName" placeholder="First Name">
+                        <input type="email" id="email" placeholder="Email Address" style="float: right;">
+                        <br><br>
+                        <input type="text" id="LastName" placeholder="Last Name">
+                        <input type="password" id="password" placeholder="Your Password" style="float: right;">
+                        <br><br>
+                        <input type="number" id="Contact" placeholder="Contact">
+                        <input type="submit" value="Sign Up" class="btn btn-primary"
+                            style="float: right; margin-left: 60px;">
+                        <br><br>
+                        <select name="payment" id="payment" class="custom-select">
+                            <option value="easypaisa">EasyPaisa</option>
+                            <option value="cashOnDelivery">Cash on Delivery</option>
+                        </select>
+
+                    </div>
+                </center>
+            </form>
+        </div>
+        <div class="col col-1" style="border-right: 1px solid #7070702F"></div>
+        <div class="col col-1"></div>
+        <div class="col col-2">
+            <center>
+                <h1>Log In</h1>
+                <form action="#" method="post">
+                    <div class="md-form">
+                        <input type="email" name="Email" id="email" placeholder="Email Address">
+                        <br><br>
+                        <input type="password" name="password" id="password" placeholder="Your Password">
+                        <br><br>
+                        <input type="submit" value="Log In" class="btn btn-primary" style="float: right;">
+                    </div>
+                </form>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>
