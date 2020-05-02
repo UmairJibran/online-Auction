@@ -1,0 +1,14 @@
+
+* {
+    font-family: 'Sulphur Point', sans-serif;
+}
+.entirePage {
+    background-color: #FBFCF5;
+}
+.jumbotron{
+    background-color: inherit;
+    box-shadow: inherit;
+}
+.custom-select{
+    width: 200px;
+}
