@@ -10,6 +10,11 @@
     if(isset($_POST['addItem'])){
         header('location:posting_item.php');
     }
+    if(isset($_POST['search'])){
+        $itemName=$_POST['itemName'];
+        header("location:items_search.php?itemName=$itemName");
+        // 
+    }
 ?>
 
 <html>
@@ -20,7 +25,7 @@
                     <h1 style='float:left;'><a class="text-primary" href="index.php">Home</a></h1>
                 </div>
                 <div class="col col-6">
-                <form method='POST' action="items.php">
+                <form method='POST'>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -28,7 +33,7 @@
                             </div>
                         </div>
                         <input type="text" name="itemName" required placeholder='Search an Item' class='form-control'>
-                        <input type="submit" value="Search" class='btn btn-outline-primary' style='float:right;'>
+                        <input type="submit" value="Search" name='search' class='btn btn-outline-primary' style='float:right;'>
                     </div>
                 </form>
                 </div>
