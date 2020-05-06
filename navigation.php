@@ -47,6 +47,17 @@
                     </div>
                 </div>
             </div>
+            <form action="#" method="post">
+                <input type="submit" value='Sort By Price' name='price' class="btn btn-primary">
+                <input type="submit" value='Sort By Categories' name='category' class="btn btn-primary">
+            </form>
+            <?php
+                if(isset($_POST['price'])){
+                    header('location:sortedbyprice.php');
+                }if(isset($_POST['category'])){
+                    header('location:sortedbycategories.php');
+                }
+            ?>
         </div>
     </body>
 </html>

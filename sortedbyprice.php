@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <title>Auction - Home</title>
+        <title>Sorted By Price</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/master.css">
@@ -15,7 +15,7 @@
             <div class="body">
                 <div class="row row-cols-1 row-cols-md-4">
                     <?php
-                        $query = "SELECT `image`,`item_name`,`due_date`,`item_id`,`init_bid`,`current_bid` FROM `auction_item`";
+                        $query = "SELECT `image`,`item_name`,`due_date`,`item_id`,`init_bid`,`current_bid` FROM `auction_item` ORDER BY `current_bid` ASC";
                         $result = $conn->query($query);
                         $rows = $result->num_rows;
                         if($rows >= 1){
@@ -42,7 +42,7 @@
                                         </div>
                                     </div></a>';
                                 }else{
-                                    echo'<a href="singleItem.php?itemId=';echo $id;echo'&itemName=';echo $name;echo'" class="itemCard"><div class="col mb-4"><div class="card">
+                                    echo'<div class="card">
                                             <img src="';echo $image;echo '" class="card-img-top" alt="';echo $name;echo'" height="300">
                                             <div class="card-body">
                                                 <h5 class="card-title">';echo $name;echo'</h5>
@@ -50,7 +50,7 @@
                                                 <h5 style="float:right;">Rs. ';echo $price;echo '</h5>
                                             </div>
                                         </div>
-                                    </div></a>';
+                                    </div>';
                                 }
                             }
                         }

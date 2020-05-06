@@ -20,18 +20,20 @@
         $poster_id = $data['item_poster'];
         $highest_bidder = $data['highest_bidder'];
         $poster_name = '';
+        $winnerEmail = '';
         $price = 0;
         if($current_bid > 0){
             $price = $current_bid;
         }else{
             $price = $init_bid;
         }
-        $query = "SELECT `user_first_name`,`user_last_name` FROM `auction_user` WHERE `user_id` = '$poster_id'";
+        $query = "SELECT `user_first_name`,`user_last_name`.`user_email` FROM `auction_user` WHERE `user_id` = '$poster_id'";
         $result = $conn->query($query);
         $rows = $result->num_rows;
             if($rows == 1){
                 $data = $result->fetch_assoc();
                 $poster_name = $data['user_first_name'] . ' ' . $data['user_last_name'];
+                $winnerEmail = $data['user_email'];
             }else{
                 echo 'an error occured fetching user\'s name';
             }
@@ -64,6 +66,7 @@
                         $user_id = $_COOKIE['user_id'];
                         if($CURRENTDATE >= $due_date){
                             echo'<font color="red">Auction Ended</font>';
+                            echo"<font color='green'>Won by $winnerEmail</font>";
                         }elseif($user_id == $highest_bidder){
                             echo'
                                 <div class="alert alert-success" role="alert">
