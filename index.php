@@ -46,5 +46,3 @@
         </div>
     </body>
 </html>
-
-<!-- INSERT INTO `auction_item` (`item_id`, `item_name`, `item_type`, `init_bid`, `current_bid`, `due_date`, `post_date`, `category`, `item_condition`, `location`, `description`, `image`, `item_poster`) VALUES (NULL, 'Sofa', '', '5000', '0', '2020-05-21', '2020-05-06', 'Furniture', 'old', 'Peshawar', 'This is a very good sofa, you can sit you can lay down, watch TV or give us 4GPA when sitting on it :)', '', '1'); -->

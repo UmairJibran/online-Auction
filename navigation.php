@@ -1,11 +1,14 @@
 <?php
+    if(!isset($_COOKIE['user_id'])){
+        header('location:login.php',false);
+        die;
+    }
     if(isset($_POST['signOut'])){
         setcookie('user_id',$_COOKIE['user_id'],time() - 1);
         header('location:login.php');
     }
-    if(!isset($_COOKIE['user_id'])){
-        header('location:login.php',false);
-        die;
+    if(isset($_POST['addItem'])){
+        header('location:posting_item.php');
     }
 ?>
 
@@ -33,7 +36,8 @@
                     <div style = "float:right;">
                         <h5>Hello, <?php echo"{$_COOKIE['user_first_name']}"; ?></h5>
                         <form method='POST'>
-                            <input type="submit" value="Sign Out" class="btn btn-outline-primary" name='signOut' style='float:right;'>
+                            <input type="submit" value="+" class="btn btn-outline-success ml-2" name='addItem'>
+                            <input type="submit" value="Sign Out" class="btn btn-outline-primary" name='signOut'>
                         </form>
                     </div>
                 </div>

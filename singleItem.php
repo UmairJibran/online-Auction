@@ -69,7 +69,10 @@
                     <?php
                         if(isset($_POST['bid_placement'])){
                             $user_id = $_COOKIE['user_id'];
-                            $bid = $_POST['bid'];
+                            $bid = $_POST['bid'];                            
+                            if($poster_id == $user_id){
+                                echo "<font color='red'><center>You can't Bid on your product</center></font>";
+                            }else
                             if($user_id == $highest_bidder){
                                 echo "<font color='red'><center>You can't outbid yourself</center></font>";
                             }else if($bid > $price){
