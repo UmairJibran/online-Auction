@@ -27,7 +27,7 @@
         }else{
             $price = $init_bid;
         }
-        $query = "SELECT `user_first_name`,`user_last_name`.`user_email` FROM `auction_user` WHERE `user_id` = '$poster_id'";
+        $query = "SELECT `user_first_name`,`user_last_name`,`user_email` FROM `auction_user` WHERE `user_id` = '$poster_id'";
         $result = $conn->query($query);
         $rows = $result->num_rows;
             if($rows == 1){

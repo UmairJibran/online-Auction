@@ -47,17 +47,35 @@
                     </div>
                 </div>
             </div>
-            <form action="#" method="post">
-                <input type="submit" value='Sort By Price' name='price' class="btn btn-primary">
-                <input type="submit" value='Sort By Categories' name='category' class="btn btn-primary">
-            </form>
-            <?php
-                if(isset($_POST['price'])){
-                    header('location:sortedbyprice.php');
-                }if(isset($_POST['category'])){
-                    header('location:sortedbycategories.php');
-                }
-            ?>
+            <div style='float:right;'>
+                <form action="#" method="post">
+                    <input type="submit" value='Sort By Price' name='price' class="btn btn-primary">
+                    <input type="submit" value='Sort By Categories' name='category' class="btn btn-primary">
+                </form>
+                <?php
+                    if(isset($_POST['price'])){
+                        header('location:sortedbyprice.php');
+                    }if(isset($_POST['category'])){
+                        header('location:sortedbycategories.php');
+                    }
+                ?>
+            </div>
+            <div style='float:left;'>
+                <form action="#" method="post">
+                    <input type="submit" value='About Us' name='about' class="btn btn-primary">
+                    <input type="submit" value='Contact Us' name='contact' class="btn btn-primary">
+                    <input type="submit" value='Privacy Policy' name='privpol' class="btn btn-primary">
+                </form>
+                <?php
+                    if(isset($_POST['about'])){
+                        header('location:about.php');
+                    }if(isset($_POST['privpol'])){
+                        header('location:privacy.php');
+                    }if(isset($_POST['contact'])){
+                        header('location:contact.php');
+                    }
+                ?>
+            </div>
         </div>
     </body>
 </html>
