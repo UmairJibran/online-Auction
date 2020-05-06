@@ -22,22 +22,37 @@
                         $name = $data['item_name'];
                         $image = $data['image'];
                         $itemID = $data['item_id'];
+                        $due_date = $data['due_date'];
                         $description = $data['description'];
                         $condition = $data['item_condition'];
                         $highest_bid = $data['current_bid'];
-                        echo "
-                            <a href='singleItem.php?itemId=$itemID&itemName=$name'>
-                                <div class='card mb-3'>
+                        if($CURRENTDATE <= $due_date){
+                            echo "
+                                <a href='singleItem.php?itemId=$itemID&itemName=$name'>
+                                    <div class='card mb-3'>
+                                        <img src='$image' class='responsive' height='300px' style='object-fit: cover;' class='card-img-top' alt='$name'>
+                                        <div class='card-body'>
+                                            <h4 class='card-title'>$name</h4>
+                                            <h5 class='card-text'>$description</h5>
+                                            <p class='card-text' style='float:right'><small class='text-muted'>Current Highest Bid $highest_bid</small></p>
+                                            <p class='card-text'><small class='text-muted'>Condition $condition</small></p>
+                                            <font color='green'>Active</font>
+                                        </div>
+                                    </div>
+                                </a>
+                            ";
+                        }else{
+                            echo "<div class='card mb-3'>
                                     <img src='$image' class='responsive' height='300px' style='object-fit: cover;' class='card-img-top' alt='$name'>
                                     <div class='card-body'>
                                         <h4 class='card-title'>$name</h4>
                                         <h5 class='card-text'>$description</h5>
                                         <p class='card-text' style='float:right'><small class='text-muted'>Current Highest Bid $highest_bid</small></p>
                                         <p class='card-text'><small class='text-muted'>Condition $condition</small></p>
+                                        <font color='red'>Expired</font>
                                     </div>
-                                </div>
-                            </a>
-                        ";
+                                </div>";
+                        }
                     }
                 }else{
                     echo "

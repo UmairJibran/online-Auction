@@ -60,22 +60,35 @@
                     <h6>Active till: <?php echo $due_date?></h6>
                 </div>
                 <div class="col col-4">
-                    <form method="post">
-                        <div class="input-group">
-                            <input class='form-control form-control-lg' type="number" name="bid" required placeholder='Place your bid'>
-                            <input type="submit" value="BID" class='btn btn-outline-primary btn-lg ml-4 pl-4 pr-4' name='bid_placement'>
-                        </div>
-                    </form>
                     <?php
+                        $user_id = $_COOKIE['user_id'];
+                        if($CURRENTDATE >= $due_date){
+                            echo'<font color="red">Auction Ended</font>';
+                        }elseif($user_id == $highest_bidder){
+                            echo'
+                                <div class="alert alert-success" role="alert">
+                                    <center>You\'ve outbid everyone!</center>
+                                </div>
+                            ';
+                        }elseif($poster_id == $user_id){
+                            echo'
+                                <div class="alert alert-secondary" role="alert">
+                                    <center>Can\'t place bid on your product!</center>
+                                </div>
+                            ';
+                        }else{
+                            echo '
+                                <form method="post">
+                                    <div class="input-group">
+                                        <input class="form-control form-control-lg" type="number" name="bid" required placeholder="Place your bid">
+                                        <input type="submit" value="BID" class="btn btn-outline-primary btn-lg ml-4 pl-4 pr-4" name="bid_placement">
+                                    </div>
+                                </form>
+                            ';
+                        }
                         if(isset($_POST['bid_placement'])){
-                            $user_id = $_COOKIE['user_id'];
-                            $bid = $_POST['bid'];                            
-                            if($poster_id == $user_id){
-                                echo "<font color='red'><center>You can't Bid on your product</center></font>";
-                            }else
-                            if($user_id == $highest_bidder){
-                                echo "<font color='red'><center>You can't outbid yourself</center></font>";
-                            }else if($bid > $price){
+                            $bid = $_POST['bid'];
+                            if($bid > $price){
                                 $user_name = $_COOKIE['user_first_name'] . ' ' . $_COOKIE['user_last_name'];
                                 $query = "UPDATE `auction_item` SET `current_bid`='$bid',`highest_bidder`='$user_id' WHERE `item_id`='$item_id'";
                                 $result = $conn->query($query);
