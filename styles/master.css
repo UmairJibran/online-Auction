@@ -12,3 +12,6 @@
 .custom-select{
     width: 200px;
 }
+a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+}
