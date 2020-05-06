@@ -2,6 +2,7 @@
     require_once('connection.php');
     require_once('navigation.php');
     $userID = $_COOKIE['user_id'];
+    $userName = $_COOKIE['user_first_name'] . ' ' . $_COOKIE['user_last_name'];
 ?>
 <html>
     <head>
@@ -74,7 +75,11 @@
                     echo 'uploading...';
                     move_uploaded_file($fileTempName,$fileDestination);
                     $image = $fileDestination;
-                    $query = "INSERT INTO `auction_item` (`item_name`, `init_bid`, `current_bid`,`due_date`, `post_date`, `category`, `item_condition`, `location`, `description`,`image`, `item_poster`) VALUES ('$item_name','$init_bid','0','$dueDate','$date','$category','$item_condition','$location','$description','$image','$userID')";
+                    $query = "INSERT INTO `auction_item` (`item_name`, `init_bid`, `current_bid`,`due_date`, `post_date`, `category`, `item_condition`, `location`, `description`,`image`, `item_poster`,`highest_bidder`) VALUES ('$item_name','$init_bid','0','$dueDate','$date','$category','$item_condition','$location','$description','$image','$userID','$userID')";
+                    $result = $conn->query($query);
+                    $id = $conn->insert_id;
+                    print($id);
+                    $query = "INSERT INTO `auction_bids` (`item_id`, `user_id`, `user_name`, `user_bid`) VALUES('$id','$userID','$userName','$init_bid');";
                     $result = $conn->query($query);
                     header('location:index.php');
                 }else{

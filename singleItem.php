@@ -43,7 +43,7 @@
 ?>
 <html>
     <head>
-        <title><?php echo $item_name; ?> Details</title>
+        <title><?php echo $item_name; ?></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/master.css">

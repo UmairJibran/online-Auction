@@ -37,7 +37,7 @@
                         <h5>Hello, <?php echo"{$_COOKIE['user_first_name']}"; ?></h5>
                         <form method='POST'>
                             <input type="submit" value="+" class="btn btn-outline-success ml-2" name='addItem'>
-                            <input type="submit" value="Sign Out" class="btn btn-outline-primary" name='signOut'>
+                            <input type="submit" value="Sign Out" class="btn btn-outline-danger" name='signOut'>
                         </form>
                     </div>
                 </div>
